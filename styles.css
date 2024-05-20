@@ -2,10 +2,14 @@ body, html{
     /* background-color: beige; */
     display: flex;
     background-color: aquamarine;
+    flex-direction: column;
     /* flex-direction: row; */
-    height: 90%;
+    height: 100%;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(135deg, rgb(250, 39, 155) 50%, rgb(255, 230, 0) 50%);
+    /* background-blend-mode: multiply; */
+
 }
 .homepage{
     /* display: none; */
@@ -22,9 +26,20 @@ body, html{
 }
 
 .quizBoard{
+    height: 50vh;
+    width: 50vw;
     margin: 2%;
-    display: none;
-    /* display: flex; */
+    /* display: none; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.optionClass{
+    height: 8vh;
+    width: 40vw;
+    background-color: brown;
 }
 
 #heading{
@@ -32,25 +47,29 @@ body, html{
     color: rgb(0, 35, 99);
 }
 
+#question{
+    font-size: 2em;
+}
 
 #startButton{
     font-size: 1.5em;
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: 800;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 4vh;
-    width: 5vw;
-    border: 3px solid blue;
+    width: 6.5vw;
+    border: 3px solid black;
     border-radius: 5%;
-    background-color: rgb(24, 146, 228);
+    background-color: rgb(255, 65, 138);
 }
 
 #startButton:hover{
-    box-shadow: -4px 4px 3px black;
+    cursor: pointer;
+    /* box-shadow: -4px 4px 3px black; */
     transition: 0.5s;
-    background-color: blue;
+    background-color: rgb(255, 0, 76);
 }
 
