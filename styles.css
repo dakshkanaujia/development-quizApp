@@ -1,0 +1,56 @@
+body, html{
+    /* background-color: beige; */
+    display: flex;
+    background-color: aquamarine;
+    /* flex-direction: row; */
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+}
+.homepage{
+    /* display: none; */
+    border: 10px solid rgb(255, 0, 119);
+    border-style: dashed;
+    display: flex;
+    /* height: 40%; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 50vw;
+    background-color: aqua;
+}
+
+.quizBoard{
+    margin: 2%;
+    display: none;
+    /* display: flex; */
+}
+
+#heading{
+    font-size: 4em;
+    color: rgb(0, 35, 99);
+}
+
+
+#startButton{
+    font-size: 1.5em;
+    color: white;
+    font-weight: 800;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4vh;
+    width: 5vw;
+    border: 3px solid blue;
+    border-radius: 5%;
+    background-color: rgb(24, 146, 228);
+}
+
+#startButton:hover{
+    box-shadow: -4px 4px 3px black;
+    transition: 0.5s;
+    background-color: blue;
+}
+
