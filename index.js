@@ -6,10 +6,14 @@ let detail1 = document.querySelector('.detail1');
 let detail2 = document.querySelector('.detail2');
 let detail3 = document.querySelector('.detail3');
 let detail4 = document.querySelector('.detail4');
+let scoreAndProg = document.querySelector('.scoreAndProgress');
+let progressBar = document.querySelector('.progress-bar');
+let scoreB = document.querySelector('.scoreBoard');
 
 startButton.addEventListener('click', function(){
     homepage.style.display = 'none';
     quizBoard.style.display = 'flex';
+    scoreAndProg.style.display = 'flex'
 });
 
 const questions = 
@@ -55,9 +59,11 @@ const questions =
         "answer" : "option2"
     }
 ];
+let totalq = questions.length;
 let arr = [0,1,2,3,4];
 
 async function displayQuestions(remainingQuestions) {
+    let score = 0;
     for (let i = 0; i < remainingQuestions.length; i++) {
         displayQuestion(remainingQuestions[i]);
         const clickedOption = await waitForUserInput();
@@ -65,17 +71,32 @@ async function displayQuestions(remainingQuestions) {
         if(parentOption.classList.contains('optionClass')){
             const opt = parentOption.classList[0];
             const child = parentOption.lastElementChild;
+            let c = remainingQuestions[i].answer.charAt(6);
+            const toColor = document.querySelector('.detail'+c);
+
             console.log(child);
             if(opt == remainingQuestions[i].answer){
                 console.log("matched");
                 child.style.backgroundColor = 'green';
-                child.style.color = 'white';
+                child.style.transition = '0.3s ease-in-out';
+                score+=10;
+                // child.style.color = 'white';
             }else{
                 console.log("not matched");
-                child.style.backgroundColor = 'red';
-                child.style.color = 'white';
+                child.style.backgroundColor = 'red';                
+                child.style.transition = '0.3s ease-in-out';
+                // child.style.color = 'white';
+                await delay(1000);
+                toColor.style.transition = '0.3s ease-in-out';
+                toColor.style.backgroundColor = 'green';
+                score -= 5;
+                // toColor.style
             }
             await delay(3000);
+            progressBar.style.width = ((i+1) * (100/totalq)) + '%' ;
+            progressBar.innerText = (i+1) + '/' + totalq;
+            scoreB.innerText = score;
+            toColor.style.backgroundColor = 'white';
             child.style.backgroundColor = 'white';  
             child.style.color = 'black';          
         }else{
