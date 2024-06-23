@@ -265,7 +265,7 @@ function waitForUserInput() {
 
 function waitForInput() {
     return new Promise(resolve => {
-        selectQuestions = prompt("Enter");
+        selectQuestions = prompt("Enter Number of Question to Attempt out of 20");
         resolve(selectQuestions);
     });
 }
